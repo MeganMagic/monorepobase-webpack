@@ -1,1 +1,1 @@
-import("./bootstrap");
+export { default as Button } from "./Button";
