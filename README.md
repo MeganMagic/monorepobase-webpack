@@ -11,7 +11,8 @@
 ### pnpm workspace
 
 - 모노레포 환경 구성 ([문서](https://pnpm.io/workspaces))
-- 패키지 간 동일한 의존성 버전 사용하도록 설정 가능
+- 패키지 간 의존성 관리
+- 전체 프로젝트 스크립트 관리
 
 <br />
 
@@ -76,55 +77,30 @@
 
 ## 프로젝트 실행방법
 
-1. remote 프로젝트 실행
+1. 모든 패키지 동시 실행
+    - remote 모듈이 config에 입력한 주소에 hosting 되어있어야 함
+    ```bash
+    pnpm dev
+    # original script: pnpm -r dev
+    ```
+2. 특정 패키지 실행
+    ```bash
+    pnpm launcher dev
+    # original script: pnpm -F <package-name> dev
+    ```
 
-- 참조하는 패키지들이 런처에 작성한 위치에 호스팅 되어야 함
-  ```bash
-  # packages/ui-internal
-  pnpm run start
-  # packages/app1-remote
-  pnpm run start
-  # packages/app2-remote
-  ```
-
-2. host 프로젝트 실행
-   ```bash
-   # packages/launcher
-   pnpm run start
-   ```
 
 <br/>
 
-## 한계
-
-- 각 프로젝트 별도로 실행
-- Type safe하게 관리하기 어려움
+## Future Task
+- Type 파일 import 안됨
+  - @typescript/module-federation 라이브러리 검토
 - CRA Deprecated
   - react 공식문서 기준.
   - next.js, remix 등의 프레임워크 사용 권장
   - 프레임워크 없이 구성할 경우 vite, parcel 등의 번들러를 추천
 
-## 대안
-
-### Lerna
-
-- javascript 모노레포 관리 도구, 사용자 많음
-- 패키지 간 의존성, 종속성 관리
-- 하위 패키지 동시 실행, 동시 빌드 등 가능
-
-### nx
-
-- 범용적인 모노레포 관리 도구
-- 빌드 캐시
-- rich ecosystem
-- 제공 기능, 템플릿 많음
-- 러닝 커브, 너무 많은 캡슐화
-
-### turbo
-
-- vercel 제공 monorepo 관리 도구
-- 세팅이 간편함
-- 자료 부족
+<br/>
 
 ## 참고자료
 

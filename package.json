@@ -2,9 +2,12 @@
   "name": "monorepo-webpack",
   "version": "1.0.0",
   "license": "ISC",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "pnpm -r dev",
+    "launcher": "pnpm -F @monorepo-webpack/launcher",
+    "app1": "pnpm -F @monorepo-webpack/app1",
+    "app2": "pnpm -F @monorepo-webpack/app2"
   },
   "workspaces": [
     "packages/*"
